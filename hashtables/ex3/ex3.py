@@ -1,11 +1,19 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    cache = {}
+    length = len(arrays)
+    result = []
+    for sublist in arrays:
+        for item in sublist:
+            if item not in cache:
+                cache[item] = 1
+            else:
+                cache[item] += 1
+    
+    for key, val in cache.items():
+        if val >= length:
+            result.append(key)
 
     return result
-
 
 if __name__ == "__main__":
     arrays = []
