@@ -1,12 +1,16 @@
 # Your code here
-
-
+import ntpath
 
 def finder(files, queries):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    cache = {}
+    result = []
+    for i in queries:
+        if i not in cache:
+            cache[i] = False
+    
+    for i in files:
+        if ntpath.basename(i) in cache:
+            result.append(i)
 
     return result
 
